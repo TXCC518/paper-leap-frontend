@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆形 -->
+  <circle cx="100" cy="100" r="90" fill="white" stroke="#7879F1" stroke-width="4"/>
+  
+  <!-- 飞跃的纸飞机 -->
+  <g>
+    <!-- 纸飞机主体 -->
+    <path d="M50 120L90 90L50 60L140 90L50 120Z" fill="#7879F1"/>
+    
+    <!-- 纸飞机折痕 -->
+    <path d="M50 60L90 90" stroke="#A5A6F6" stroke-width="2"/>
+    <path d="M50 120L90 90" stroke="#A5A6F6" stroke-width="2"/>
+    
+    <!-- 飞行轨迹 -->
+    <path d="M55 90C70 70 90 60 120 65" stroke="#A5A6F6" stroke-width="3" stroke-dasharray="4 2" stroke-linecap="round"/>
+    
+    <!-- 跃动感的圆点 -->
+    <circle cx="125" cy="65" r="5" fill="#A5A6F6"/>
+    <circle cx="140" cy="62" r="3" fill="#A5A6F6"/>
+    <circle cx="150" cy="60" r="2" fill="#A5A6F6"/>
+  </g>
+  
+  <!-- 文字：纸跃 -->
+  <text x="100" y="145" font-family="'Noto Sans SC', sans-serif" font-size="28" font-weight="bold" fill="#7879F1" text-anchor="middle">纸跃</text>
+  
+  <!-- 英文标语 -->
+  <text x="100" y="165" font-family="Arial, sans-serif" font-size="10" fill="#A5A6F6" text-anchor="middle">Paper Leap</text>
+</svg> 

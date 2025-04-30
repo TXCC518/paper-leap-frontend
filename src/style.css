@@ -1,0 +1,20 @@
+:root {
+    --color-primary: #7879F1;
+    --color-secondary: #A5A6F6;
+    --color-accent: #F178B6;
+    --color-bg: #F5F5FF;
+    --color-text: #2D2D3F;
+    /* 搜索框padding */
+    --van-search-padding: 0 !important;
+    /* button文字padding */
+    --van-button-normal-padding: 0 !important;
+}
+
+/* 全局 box-sizing 设置 */
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
