@@ -3,7 +3,7 @@
     <div class="content">
       <router-view />
     </div>
-    <van-tabbar route >
+    <van-tabbar style="height: 64px;" route >
       <van-tabbar-item to="/" name="index" icon="home-o">主页</van-tabbar-item>
       <van-tabbar-item to="/search" name="search" icon="search">搜索</van-tabbar-item>
       <van-tabbar-item to="/team" name="team" icon="search">队伍</van-tabbar-item>
@@ -22,5 +22,6 @@ const onClickRight = () => alert('右');
 </script>
 
 <style scoped>
-
+.footer {
+}
 </style>

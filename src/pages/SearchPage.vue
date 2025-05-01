@@ -26,6 +26,24 @@
             <van-button type="default">电影</van-button>
           </div>
         </div>
+        <div class="searchHistory">
+          <div class="historyTitle">
+            <div class="left">搜索历史</div>
+            <div class="right">清空</div>
+          </div>
+          <div class="historyMain">
+            <div v-for="item in 20" class="historyOne">
+              <div class="left">
+<!--                <van-icon name="browsing-history-o" />-->
+                <img src="../assets/Symbol.png" alt="">
+                篮球爱好者
+              </div>
+              <div class="right">
+                <van-icon style="font-weight: 900; font-size: 16px" color="#9CA3AF" name="cross" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -54,8 +72,9 @@ const selectButtonValue = ref("user");
 
 .searchMain {
   background-color: var(--color-bg);
-  min-height: 100vh;
   padding-top: 3px;
+  height: 545px;
+  padding-bottom: 12px;
 
   .selectOne {
     padding: 12px;
@@ -97,6 +116,52 @@ const selectButtonValue = ref("user");
           background-color: var(--color-primary);
           color: #fff;
         }
+      }
+    }
+    .searchHistory {
+      padding-top: 12px;
+      .historyTitle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 32px;
+        .left {
+          font-weight: 500;
+          font-size: 14px;
+          color: #6B7280;
+        }
+        .right {
+          color: #7879F1;
+          font-weight: 500;
+          font-size: 12px;
+        }
+      }
+      .historyMain {
+        padding-top: 12px;
+        height: 290px;
+        overflow-y: auto;
+        .historyOne {
+          height: 40px;
+          padding: 8px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .left {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 350;
+            img {
+              width: 16px;
+              height: 16px;
+              margin-right: 12px;
+              margin-top: 2px;
+            }
+          }
+        }
+      }
+      .historyMain::-webkit-scrollbar {
+        display: none;
       }
     }
   }
