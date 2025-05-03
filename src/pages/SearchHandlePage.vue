@@ -1,11 +1,5 @@
 <template>
-  <div id="searchPage">
-    <HeaderComponent>
-      <template #default>
-        <van-search right-icon="filter-o" class="searchForm" v-model="value" placeholder="搜索兴趣、技能或用户" />
-      </template>
-    </HeaderComponent>
-
+  <div id="searchHandlePage">
     <div class="searchMain">
       <div class="selectOne">
         <van-button @click="selectButtonValue = 'user'" :class="{selectButton: selectButtonValue == 'user'}">用户</van-button>
@@ -32,9 +26,9 @@
             <div class="right">清空</div>
           </div>
           <div class="historyMain">
-            <div v-for="item in 20" class="historyOne">
+            <div class="historyOne">
               <div class="left">
-<!--                <van-icon name="browsing-history-o" />-->
+                <!--                <van-icon name="browsing-history-o" />-->
                 <img src="../assets/Symbol.png" alt="">
                 篮球爱好者
               </div>
@@ -50,25 +44,26 @@
 </template>
 
 <script setup lang="ts">
-import HeaderComponent from "../components/HeaderComponent.vue";
-import {ref} from "vue";
 
-const value = ref("");
+import emitter from "../utils/EventBus.ts";
+import {onMounted, ref, watch} from "vue";
 
 const selectButtonValue = ref("user");
 
 
+watch(selectButtonValue, (newValue) => {
+  emitter.emit('update-target', {
+    target: newValue
+  })
+})
+
+
+
 </script>
 
-<style scoped>
-#searchPage .searchForm {
-  border-radius: 19px;
-  overflow: hidden;
-}
 
-::v-deep .van-icon-filter-o {
-  color: var(--color-primary); /* 换成你想要的颜色 */
-}
+
+<style scoped>
 
 .searchMain {
   background-color: var(--color-bg);
@@ -88,6 +83,10 @@ const selectButtonValue = ref("user");
       font-size: 14px;
       background-color: #F3F4F6;
       color: #4B5563;
+    }
+    button:active {
+      background-color: var(--color-primary);
+      color: #fff;
     }
   }
 
