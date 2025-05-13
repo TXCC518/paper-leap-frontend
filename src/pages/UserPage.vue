@@ -6,10 +6,10 @@
       </div>
       <div class="showUserInfo">
         <div class="avatar">
-          <img src="https://cdn.getmerlin.in/cms/Anime_style_avatar_with_vibrant_colors_expressive_eyes_dynamic_hair_playful_pose_and_Japanese_pop_culture_background_fa58105437.jpg" alt="">
+          <img :src="currentUser.avatarUrl" alt="">
         </div>
-        <div class="username">澹台岚</div>
-        <div class="id">ID:<span>123456</span></div>
+        <div class="username">{{  currentUser.username }}</div>
+        <div class="id">ID:<span>{{  currentUser.id }}</span></div>
         <div class="follow">
           <div class="follower">
             <div class="number">12</div>
@@ -41,9 +41,7 @@
                   关于我
                 </div>
                 <div class="description">
-                  热爱学习、热爱生活的大学生一枚，计算机专
-                  业。喜欢编程、摄影和旅行，希望能在这里找到
-                  志同道合的朋友！
+                  {{  currentUser.description }}
                 </div>
               </div>
               <div class="aboutMe">
@@ -52,14 +50,7 @@
                   兴趣爱好
                 </div>
                 <div class="tags">
-                  <div class="tag">编程</div>
-                  <div class="tag">音乐</div>
-                  <div class="tag">吉他</div>
-                  <div class="tag">考研</div>
-                  <div class="tag">蓝桥杯</div>
-                  <div class="tag">数据结构</div>
-                  <div class="tag">CCPC</div>
-                  <div class="tag">ICPC</div>
+                  <div v-if="currentUser.tags" v-for="(item, idx) in JSON.parse(currentUser.tags)" :key="idx" class="tag">{{  item }}</div>
                 </div>
               </div>
             </div>
@@ -73,9 +64,16 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
+import {getCurrentUser} from "../request/user.ts";
 
 const activeName = ref("a");
+const currentUser = ref({})
+
+onMounted(async () => {
+  const { data } = await getCurrentUser();
+  currentUser.value = data.data
+})
 </script>
 
 <style scoped>

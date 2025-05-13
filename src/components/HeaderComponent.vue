@@ -20,9 +20,12 @@
 #headerComponent {
   height: 57px;
   padding: 12px 16px 8px 16px;
+  display: flex;
+  justify-content: center;
 
   .headerCenter {
     height: 100%;
+    width: 100%;
   }
 }
 </style>
